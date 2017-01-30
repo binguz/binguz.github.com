@@ -1,7 +1,7 @@
 title:            Binguz Blog
 description:      "별볼일없는 개발 블로그"
 logo:             logo.png
-disqus_shortname: binguz
+disqus_shortname: binguz-disqus-com
 share:            true
 dropcap:		      true
 # Change url to your domain. Leave localhost server or blank when working locally.
