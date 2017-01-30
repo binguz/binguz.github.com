@@ -1,6 +1,6 @@
 title:            Binguz
 description:      "Binguz's Dev Blog"
-logo:             logo.png
+logo:             logo.jpg
 disqus_shortname: binguz-disqus-com
 share:            true
 dropcap:		      true
@@ -11,11 +11,11 @@ dropcap:		      true
 
 # Owner/author information
 owner:
-  name:           Byung-gu, Kang (David)
+  name:           Byung-gu, Kang (Binguz)
   avatar:         binguz.jpg
   email:          kbg2327@gmail.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description:    'From publishing software to the cloud, I started in 2001 by releasing a Linux distribution in Brazil, built 2 more products, co-founded a company, migrated to Australia, got a master’s degree, got married, became a DevOps engineer and now co-founder of SpikeNode.com.'
+  description:    '.'
   # Social networking links used in footer. Update and remove as you like.
   twitter:        bk_snail
   facebook:       byunggu.kang.9
