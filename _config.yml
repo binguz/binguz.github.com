@@ -1,34 +1,31 @@
-title:            Notepad
-description:      "Blogging is fun"
+title:            Binguz Blog
+description:      "Post personal concerns"
 logo:             logo.png
-disqus_shortname: hmfaysal
+disqus_shortname: binguz
 share:            true
-dropcap:			true
+dropcap:		      true
 # Change url to your domain. Leave localhost server or blank when working locally.
-# or use the hint from http://jekyllrb.com/docs/github-pages/ to keep this the same 
+# or use the hint from http://jekyllrb.com/docs/github-pages/ to keep this the same
 # whether working locally or remotely. Start Jekyll with: jekyll serve --baseurl ''
-url:        	  /Notepad
+#url:        	    http://allandenot.com
 
 # Owner/author information
 owner:
-  name:           Hossain Mohd Faysal
-  avatar:         hmfaysal.jpg
-  email:          hmfaysal@alum.mit.edu
+  name:           Byung-gu, Kang (David)
+  avatar:         adenot.jpg
+  email:          kbg2327@gmail.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description:    Awesome Dude, Awesome Life
+  description:    'From publishing software to the cloud, I started in 2001 by releasing a Linux distribution in Brazil, built 2 more products, co-founded a company, migrated to Australia, got a master’s degree, got married, became a DevOps engineer and now co-founder of SpikeNode.com.'
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        hmfaysal
-  facebook:       hmfaysal
-  github:         hmfaysal      
-  instagram:      hmfaysal
-  # For Google Authorship https://plus.google.com/authorship
-  google_plus:    https://plus.google.com/u/0/102602916593522619858
+  twitter:        bk_snail
+  facebook:       kbg2327@hanmail.net
+  github:         binguz
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:   UA-39365944-7
-google_verify:      
+google_analytics:  UA-91111244-1
+google_verify: zw7TMFq_zQa7OSBv4Tt7oqrlvN45XpNapPCFpiI0YUw
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:         
+bing_verify:
 
 # Links to include in footer navigation
 # For external links add external: true
@@ -41,11 +38,13 @@ links:
     url: /featured
   - title: Categories
     url: /categories
-  - title: About
+  - title: About Allan
     url: /about
+  - title: Managed Services
+    url: /services
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    Asia/Dhaka
+timezone:    Asia/Seoul
 future:      true
 highlighter: pygments
 markdown:    kramdown
@@ -53,7 +52,7 @@ paginate:    5
 paginate_path: "page:num"
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   /:categories/:title
+permalink:   date
 
 kramdown:
   auto_ids: true
@@ -63,7 +62,7 @@ kramdown:
   use_coderay: false
 
   coderay:
-    coderay_line_numbers: 
+    coderay_line_numbers:
     coderay_line_numbers_start: 1
     coderay_tab_width: 4
     coderay_bold_every: 10
@@ -71,8 +70,8 @@ kramdown:
 
 prose:
   rooturl: '_posts'
-  siteurl: 'http://hmfaysal.github.io/Notepad/'
-  relativeLinks: 'http://hmfaysal.github.io/Notepad/links.jsonp'
+  siteurl: 'http://binguz.github.io/'
+  relativeLinks: 'http://binguz.github.io/links.jsonp'
   media: 'images'
   metadata:
     _posts:
@@ -115,16 +114,14 @@ prose:
           options:
             - name: "Personal"
               value: personal
-            - name: "Engineering"
-              value: engineering
-            - name: "Physics"
-              value: physics
-            - name: "Psychology"
-              value: psychology
             - name: "Interesting"
               value: interesting
-            - name: "Web-Development"
-              value: webdevelopment
+            - name: "DevOps"
+              value: devops
+            - name: "Development"
+              value: development
+            - name: "Startups"
+              value: startups
           alterable: true
       - name: "tags"
         field:
