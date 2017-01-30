@@ -1,6 +1,7 @@
 title:            Binguz
 description:      "Binguz's Dev Blog"
-logo:             logo.jpg
+logo:             logo.png
+head-image:       head-image.jpg
 disqus_shortname: binguz-disqus-com
 share:            true
 dropcap:		      true
