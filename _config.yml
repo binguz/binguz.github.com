@@ -36,7 +36,7 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 
 # Site owner
 owner:
-  name: Your Name
+  name: BYung-Gu,Kang (Binguz)
   avatar: binguz.jpg
   email: kbg2327@gmail.com
   disqus-shortname: binguz-disqus-com
@@ -44,7 +44,7 @@ owner:
   facebook: byunggu.kang.9
   github: binguz
   stackexchange: #http://stackoverflow.com/users/123456/username
-  linkedin: #username
+  linkedin: byung-gu-kang-042ab2a0
   instagram: bk_snail
   flickr: #username
   tumblr: #username
