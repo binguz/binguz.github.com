@@ -1,89 +1,72 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
-  {% include head.html %}
-  {% if site.dropcap %}<style type="text/css">@media only screen and (min-width:43.75em){.notepad-post-content div>p:first-child:first-letter{float:left;font-size:4.688rem;line-height:4.375rem;padding-top:.25rem;padding-right:.5rem;padding-left:.188rem;font-family:serif}}</style>{% endif %}
+{% include head.html %}
 </head>
-<body class="post-template" itemscope itemtype="http://schema.org/WebPage">
-{% if page.imagefeature %}
-<main id="notepad-post-container" class="notepad-post-container intro-effect-sliced" role="main">
-  <header class="notepad-post-header">
-    <div class="bg-img"></div>
 
-    <div class="notepad-post-menu-header">
-      {% else %}
-      <main id="notepad-post-container-simple" class="notepad-post-container-simple" role="main">
-        <header class="notepad-post-header-simple">
-          <div class="notepad-post-menu-header-simple">
-            {% endif %}
-            <a class="notepad-blog-logo" href="{{ site.url }}/">
-              <h1>{{ site.title }}</h1>
-            </a>
+<body id="post">
 
-            <div class="notepad-blog-menu">
-              <div class="notepad-mobile-menu show-for-small">
-                <a href="#"><i class="fa fa-bars"></i></a>
-              </div>
-              <ul class="notepad-menu">
-                <li class="notepad-mobile-close-btn show-for-small text-right">
-                  <a href="#"><i class="fa fa-times"></i></a>
-                </li>
-                {% for link in site.links %}
-                <li>{% if link.external %}
-                  <a href="{{ link.url }}">{{ link.title }}</a>
-                  {% else %}
-                  <a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a>
-                  {% endif %} </li>
-                {% endfor %}
-                <li><a href="{{ site.url }}/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
-              </ul>
+{% include navigation.html %}
 
-            </div>
-          </div>
-          {% if page.imagefeature %}
-          <div class="notepad-post-title bg-check">
-            <h1>{{ page.title }}</h1>
-            <p>by <strong>{{ site.owner.name }}</strong> &#8212; {% assign tagsize = page.tags.size %}{% if tagsize != 0 %}on {% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" data-toggle="tooltip" title="Posts tagged with {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;&comma;&nbsp;{% endunless %}{% endfor %}{% endif %} <strong><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %b %Y" }}</time></strong></p>
-          </div>
-          <div class="bg-img"></div>
-        </header>
-        <button class="trigger bg-check" data-info="Read more"><span>Trigger</span></button>
-        <img src="{{ site.url }}/images/{{ page.imagefeature }}" alt="cover-image" />
+<div id="main" role="main">
+  <article class="hentry">
+    {% if page.image.feature %}<img src="{{ site.url }}/images/{{ page.image.feature }}" class="entry-feature-image" alt="{{ page.title }}" {% if site.logo == null %}style="margin-top:0;"{% endif %}>{% if page.image.credit %}<p class="image-credit">Image credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></p>{% endif %}{% endif %}
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <ul class="entry-tags">
+          {% for tag in page.tags %}<li><a href="{{ site.url }}/tags/#{{ tag }}" title="Pages tagged {{ tag }}">{{ tag }}</a></li>{% endfor %}
+        </ul>
+        {% if page.link %}
+          <h1 class="entry-title"><a href="{{ page.link }}">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %} <span class="link-arrow">&rarr;</span></a></h1>
         {% else %}
-        <div class="notepad-post-title-simple row">
-          <div class="small-12 columns">
-            <div class="notepad-post-meta-simple">
-              <h1>{{ page.title }}</h1>
-              <p>by <strong>{{ site.owner.name }}</strong> &#8212; on <a href="{{ site.url }}/categories/#{{ page.categories }}">{{ page.categories }}</a> &#8212; {% assign tagsize = page.tags.size %}{% if tagsize != 0 %}tags: {% for tag in page.tags %}<a href="{{ site.url }}/tags/index.html#{{ tag | cgi_encode }}" data-toggle="tooltip" title="Posts tagged with {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;&comma;&nbsp;{% endunless %}{% endfor %}{% endif %} <strong><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %b %Y" }}</time></strong></p>
-            </div>
-          </div>
-        </div>
-  </header>
-  {% endif %}
-  {% if page.imagefeature %}<article class="notepad-post-content post">{% else %}<article class="notepad-post-content post tag-simple">{% endif %}
-  <div>{{ content }}
-  </div>
-</article>
-  <div class="cf"></div>
-  {% if site.share %}{% include share.html %}{% endif %}
-  <div class="cf"></div>
+          <h1 class="entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %}</h1>
+        {% endif %}
+      </header>
+      <footer class="entry-meta">
+        {% if page.author %}
+          {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
+        {% endif %}
+        {% if author.avatar contains 'http' %}
+          <img src="{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"></a>
+        {% elsif author.avatar %}
+          <img src="{{ site.url }}/images/{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"></a>
+        {% endif %}
+        <span class="author vcard">By <span class="fn">{{ author.name }}</span></span>
+        <span class="entry-date date published"><time datetime="{{ page.date | date_to_xmlschema }}"><i class="fa fa-calendar-o"></i> {{ page.date | date: "%B %d, %Y" }}</time></span>
+        {% if page.modified %}<span class="entry-date date modified"><time datetime="{{ page.modified }}"><i class="fa fa-pencil"></i> {{ page.modified | date: "%B %d, %Y" }}</time></span>{% endif %}
+        {% if site.owner.disqus-shortname and page.comments or site.comments %}<span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>{% endif %}
+        {% if page.share %}{% include social-share.html %}{% endif %}
+        {% if page.ads == true %}{% include ad-sidebar.html %}<!-- /.google-ads -->{% endif %}
+      </footer>
+      <div class="entry-content">
+        {{ content }}
+        {% if site.owner.disqus-shortname and page.comments or site.comments %}
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          {% include disqus-comments.html %}
+        {% endif %}
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      {% if page.previous %}
+        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous</a>
+      {% endif %}
+      {% if page.next %}
+        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next</a>
+      {% endif %}
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
 
-  {% include signoff.html %}
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    {% include footer.html %}
+  </footer>
+</div><!-- /.footer-wrapper -->
 
-  <div class="cf"></div>
-  {% if site.disqus_shortname and page.comments == true %}
-  <section class="notepad-disqus row">
-    <div class="small-12 columns">
-      <h1 class="notepad-comments-header">Comments</h1>
-      <div id="disqus_thread"></div>
-      {% include disqus_comments.html %}
-    </div>
-  </section>
-  {% endif %}
-  <div class="cf"></div>
-
-  {% include footer.html %}
-</main>
 {% include scripts.html %}
+
 </body>
 </html>

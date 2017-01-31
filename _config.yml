@@ -1,155 +1,59 @@
-title:            Binguz
-description:      "Binguz's Dev Blog"
-logo:             logo.png
-head_image:       head-image.JPG
-disqus_shortname: binguz-disqus-com
-share:            true
-dropcap:		      true
-# Change url to your domain. Leave localhost server or blank when working locally.
-# or use the hint from http://jekyllrb.com/docs/github-pages/ to keep this the same
-# whether working locally or remotely. Start Jekyll with: jekyll serve --baseurl ''
-#url:        	    http://allandenot.com
+# Site wide configuration
 
-# Owner/author information
-owner:
-  name:           Byung-gu, Kang (Binguz)
-  avatar:         binguz.jpg
-  email:          kbg2327@gmail.com
-  # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description:    '개발 좋아합니다. 노는거 좋아합니다. 여행 좋아합니다. 분당에 거주중이며, 웹개발을 주로합니다. Hadoop, Spring, Python, Java에 흥미를 느낍니다.'
-  # Social networking links used in footer. Update and remove as you like.
-  twitter:        bk_snail
-  facebook:       byunggu.kang.9
-  github:         binguz
+title: Binguz Dev Blog
+locale: ko_KR
+description: carpe diem! seize the day make your life extraordinary
+logo: logo.png
+search: true
+url: http://binguz.github.io
 
-# Analytics and webmaster tools stuff goes here
-google_analytics:  UA-91111244-1
-google_verify: zw7TMFq_zQa7OSBv4Tt7oqrlvN45XpNapPCFpiI0YUw
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
+# Jekyll configuration
 
-# Links to include in footer navigation
-# For external links add external: true
-links:
-  - title: Home
-    url: /
-    external: false
-    icon: home
-  - title: Featured Posts
-    url: /featured
-  - title: Categories
-    url: /categories
-  - title: About Allan
-    url: /about
-  - title: Managed Services
-    url: /services
-
-# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    Asia/Seoul
-future:      true
-highlighter: pygments
+permalink:   /:categories/:title/
 markdown:    kramdown
-paginate:    5
-paginate_path: "page:num"
-
-# https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink:   date
+highlighter: rouge
+sass:
+  sass_dir: _sass
+  style: compressed
+gems:
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
 
 kramdown:
+  input: GFM
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
-  toc_levels: 1..6
-  use_coderay: false
+  toc_levels: 1..2
+  enable_coderay: false
 
-  coderay:
-    coderay_line_numbers:
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_bold_every: 10
-    coderay_css: class
-
-prose:
-  rooturl: '_posts'
-  siteurl: 'http://binguz.github.io/'
-  relativeLinks: 'http://binguz.github.io/links.jsonp'
-  media: 'images'
-  metadata:
-    _posts:
-      - name: "published"
-        field:
-          label: "Published"
-          element: "checkbox"
-          value: "true"
-      - name: "layout"
-        field:
-          element: "hidden"
-          label: "Layout"
-          value: "post"
-      - name: "title"
-        field:
-          label: "Title"
-          element: "text"
-          value: "An Awesome Headline!"
-      - name: "description"
-        field:
-          element: "text"
-          label: "Description"
-          placeholder: "Enter Post Description"
-      - name: "headline"
-        field:
-          element: "text"
-          label: "beadline"
-          placeholder: "Enter Post Headline"
-      - name: "modified"
-        field:
-          element: "text"
-          label: "Has this page been modified?"
-          placeholder: "YYYY-MM-DD"
-      - name: "categories"
-        field:
-          element: "multiselect"
-          label: "Add categories"
-          placeholder: "Choose categories"
-          value: personal
-          options:
-            - name: "Personal"
-              value: personal
-            - name: "Interesting"
-              value: interesting
-            - name: "DevOps"
-              value: devops
-            - name: "Development"
-              value: development
-            - name: "Startups"
-              value: startups
-          alterable: true
-      - name: "tags"
-        field:
-          element: "text"
-          label: "Tags"
-          placeholder: "Enter tags, separated by spaces"
-      - name: "imagefeature"
-        field:
-          element: "text"
-          label: "Featured Image"
-          placeholder: "somefile.jpg"
-      - name: "mathjax"
-        field:
-          element: "checkbox"
-          label: "MathJax"
-          value: false
-      - name: "featured"
-        field:
-          element: "checkbox"
-          label: "Featured?"
-          value: false
-      - name: "comments"
-        field:
-          element: "checkbox"
-          label: "Comments"
-          value: true
-
+mathjax: true
 
 include: [".htaccess"]
-exclude: ["lib", "config.rb", "Gemfile", "Capfile", "Gemfile.lock", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", ".less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "vendor"]
+
+
+# Site owner
+owner:
+  name: Your Name
+  avatar: binguz.jpg
+  email: kbg2327@gmail.com
+  disqus-shortname: binguz-disqus-com
+  twitter: bk_snail
+  facebook: byunggu.kang.9
+  github: binguz
+  stackexchange: #http://stackoverflow.com/users/123456/username
+  linkedin: #username
+  instagram: bk_snail
+  flickr: #username
+  tumblr: #username
+  pinterest: #username
+  weibo: #userid
+  google:
+    plus: #username
+    analytics: UA-91111244-1
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
